@@ -24,6 +24,10 @@ public class Car extends Vehicle{
         this.doors = doors;
     }
 
+    public void setElectric(boolean electric) {
+        isElectric = electric;
+    }
+
     public boolean isElectric() {
         return isElectric;
     }

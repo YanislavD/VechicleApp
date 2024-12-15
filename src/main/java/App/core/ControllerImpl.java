@@ -1,6 +1,7 @@
 package App.core;
 
 import App.entities.Car;
+import App.entities.Motorcycle;
 import App.entities.Truck;
 import App.entities.Vehicle;
 import App.service.FleetManager;
@@ -26,6 +27,12 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
+    public void addMotorcycle (String regNumber, String brand, String model, int mileage, String hasSidecar){
+        Vehicle motorcycle = new Motorcycle(regNumber, brand, model, mileage, hasSidecar);
+        fleetManager.addVehicle(motorcycle);
+    }
+
+    @Override
     public String getVehicleDetails(String regNumber) {
         Vehicle vehicle = fleetManager.getVehicle(regNumber);
         return vehicle.toString();
@@ -42,5 +49,10 @@ public class ControllerImpl implements Controller {
         stats.append("Total vehicles: ").append(fleetManager.getAllVehicles().size()).append(System.lineSeparator());
         stats.append("Electric cars: ").append(fleetManager.countElectricCars()).append(System.lineSeparator());
         return stats.toString();
+    }
+
+
+    public String getAllVehicles() {
+        return fleetManager.toString();
     }
 }

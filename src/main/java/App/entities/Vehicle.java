@@ -61,9 +61,10 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return "Type: " + getBrand() + System.lineSeparator() +
+        return "Type: " + getClass().getSimpleName() + System.lineSeparator() +
+                "Brand: " +getBrand() + System.lineSeparator() +
                 "Registration Number: " + getRegistrationNumber() + System.lineSeparator() +
-                "Brand: " + getBrand() + System.lineSeparator() +
+                "Model: " + getModel() + System.lineSeparator() +
                 "Mileage: " + getMileage() + System.lineSeparator();
     }
 }

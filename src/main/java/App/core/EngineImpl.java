@@ -1,5 +1,10 @@
 package App.core;
 
+import App.entities.Vehicle;
+import App.service.FleetManager;
+import App.service.FleetManagerImpl;
+
+import java.util.Map;
 import java.util.Scanner;
 
 import static App.exceptions.ExceptionMessages.INVALID_TYPE;
@@ -17,7 +22,7 @@ public class EngineImpl implements Engine{
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Enter command (ADD, VIEW, REMOVE, STATS, EXIT):");
+            System.out.println("Enter command (ADD, VIEW, REMOVE, ALL, STATS, EXIT):");
             String command = scanner.nextLine().trim().toUpperCase();
 
             try {
@@ -34,6 +39,9 @@ public class EngineImpl implements Engine{
                     case "STATS":
                         handleStats();
                         break;
+                    case "ALL":
+                        handleAllVehicle();
+                        break;
                     case "EXIT":
                         System.out.println("Exiting program...");
                         return;
@@ -46,9 +54,14 @@ public class EngineImpl implements Engine{
         }
     }
 
+    private void handleAllVehicle() {
+        String allVehicle = controller.getAllVehicles();
+        System.out.println(allVehicle);
+    }
+
     private void handleAdd(Scanner scanner) {
 
-        System.out.println("Enter vehicle type (Car/Truck):");
+        System.out.println("Enter vehicle type (Car/Truck/Motorcycle):");
         String type = scanner.nextLine().trim();
         checkScanner(type);
         checkType(type);
@@ -82,13 +95,17 @@ public class EngineImpl implements Engine{
             int capacity = Integer.parseInt(scanner.nextLine().trim());
 
             controller.addTruck(regNumber, brand, model, mileage, capacity);
+        } else if (type.equalsIgnoreCase("Motorcycle")) {
+            System.out.println("Has the Motorcycle a hasSidecar? true/false");
+            String hasSidecar = scanner.nextLine();
+            controller.addMotorcycle(regNumber,brand, model,mileage,hasSidecar);
         } else {
             System.out.println("Invalid vehicle type!");
         }
     }
 
     private void checkType(String input) {
-        if(!input.equalsIgnoreCase("CAR") && !input.equalsIgnoreCase("TRUCK")) {
+        if(!input.equalsIgnoreCase("CAR") && !input.equalsIgnoreCase("TRUCK") && !input.equalsIgnoreCase("MOTORCYCLE")) {
             throw new IllegalArgumentException(INVALID_TYPE);
         }
     }

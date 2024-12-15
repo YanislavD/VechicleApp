@@ -55,4 +55,22 @@ public class FleetManagerImpl implements FleetManager {
     public List<Vehicle> getAllVehicles() {
         return new ArrayList<>(fleet.values());
     }
+
+    @Override
+    public String toString() {
+        if (fleet.isEmpty()) {
+            return "FleetManager is empty.";
+        }
+
+        StringBuilder builder = new StringBuilder("FleetManager contains the following vehicles:\n");
+
+        fleet.forEach((key, value) ->
+                builder
+                        .append("Vehicle Details: ").append(System.lineSeparator())
+                        .append(value.toString())
+                        .append("\n")
+        );
+
+        return builder.toString();
+    }
 }
