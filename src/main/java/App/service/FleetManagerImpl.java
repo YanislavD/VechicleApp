@@ -5,7 +5,7 @@ import App.entities.Vehicle;
 
 import java.util.*;
 
-import static App.exceptions.ExceptionMessages.*;
+import static App.common.ExceptionMessages.*;
 
 public class FleetManagerImpl implements FleetManager {
 

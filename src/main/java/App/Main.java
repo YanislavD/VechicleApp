@@ -1,4 +1,4 @@
-package App.app;
+package App;
 
 import App.core.Controller;
 import App.core.ControllerImpl;

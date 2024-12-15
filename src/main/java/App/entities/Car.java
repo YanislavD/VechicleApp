@@ -1,6 +1,6 @@
 package App.entities;
 
-import static App.exceptions.ExceptionMessages.NEGATIVE_DOORS_VALUE;
+import static App.common.ExceptionMessages.NEGATIVE_DOORS_VALUE;
 
 public class Car extends Vehicle{
 

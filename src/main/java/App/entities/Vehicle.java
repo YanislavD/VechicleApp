@@ -1,6 +1,6 @@
 package App.entities;
 
-import static App.exceptions.ExceptionMessages.*;
+import static App.common.ExceptionMessages.*;
 
 public abstract class Vehicle {
 

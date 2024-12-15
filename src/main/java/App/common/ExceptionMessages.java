@@ -1,4 +1,4 @@
-package App.exceptions;
+package App.common;
 
 public class ExceptionMessages {
 

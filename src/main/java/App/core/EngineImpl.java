@@ -1,14 +1,9 @@
 package App.core;
 
-import App.entities.Vehicle;
-import App.service.FleetManager;
-import App.service.FleetManagerImpl;
-
-import java.util.Map;
 import java.util.Scanner;
 
-import static App.exceptions.ExceptionMessages.INVALID_TYPE;
-import static App.exceptions.ExceptionMessages.SCANNER_NULL_OR_EMPTY;
+import static App.common.ExceptionMessages.INVALID_TYPE;
+import static App.common.ExceptionMessages.SCANNER_NULL_OR_EMPTY;
 
 public class EngineImpl implements Engine{
     private final ControllerImpl controller;

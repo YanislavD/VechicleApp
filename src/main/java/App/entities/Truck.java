@@ -1,6 +1,6 @@
 package App.entities;
 
-import static App.exceptions.ExceptionMessages.NEGATIVE_CAPACITY_VALUE;
+import static App.common.ExceptionMessages.NEGATIVE_CAPACITY_VALUE;
 
 public class Truck extends Vehicle{
 
