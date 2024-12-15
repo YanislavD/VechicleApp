@@ -19,4 +19,8 @@ public class ExceptionMessages {
     public static final String NO_SUCH_THE_REGISTRATION_NUMBER = "No vehicle found with this registration number.";
 
     public static final String VEHICLE_NULL = "Vehicle cannot be null.";
+
+    public static final String SCANNER_NULL_OR_EMPTY = "Scanner cannot be null or empty.";
+
+    public static final String INVALID_TYPE = "Invalid type.";
 }

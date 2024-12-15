@@ -2,6 +2,9 @@ package App.core;
 
 import java.util.Scanner;
 
+import static App.exceptions.ExceptionMessages.INVALID_TYPE;
+import static App.exceptions.ExceptionMessages.SCANNER_NULL_OR_EMPTY;
+
 public class EngineImpl implements Engine{
     private final ControllerImpl controller;
 
@@ -44,17 +47,24 @@ public class EngineImpl implements Engine{
     }
 
     private void handleAdd(Scanner scanner) {
+
         System.out.println("Enter vehicle type (Car/Truck):");
         String type = scanner.nextLine().trim();
+        checkScanner(type);
+        checkType(type);
 
         System.out.println("Enter registration number:");
         String regNumber = scanner.nextLine().trim();
+        checkScanner(regNumber);
 
         System.out.println("Enter brand:");
         String brand = scanner.nextLine().trim();
+        checkScanner(brand);
+
 
         System.out.println("Enter model:");
         String model = scanner.nextLine().trim();
+        checkScanner(model);
 
         System.out.println("Enter mileage:");
         int mileage = Integer.parseInt(scanner.nextLine().trim());
@@ -77,9 +87,22 @@ public class EngineImpl implements Engine{
         }
     }
 
+    private void checkType(String input) {
+        if(!input.equalsIgnoreCase("CAR") && !input.equalsIgnoreCase("TRUCK")) {
+            throw new IllegalArgumentException(INVALID_TYPE);
+        }
+    }
+
+    private void checkScanner(String type) {
+        if (type == null || type.isBlank()) {
+            throw new NullPointerException(SCANNER_NULL_OR_EMPTY);
+        }
+    }
+
     private void handleView(Scanner scanner) {
         System.out.println("Enter registration number to view details:");
         String regNumber = scanner.nextLine().trim();
+       // checkScanner(regNumber);
         System.out.println(controller.getVehicleDetails(regNumber));
     }
 
