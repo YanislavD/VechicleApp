@@ -2,6 +2,7 @@ package App.core;
 
 import java.util.Scanner;
 
+import static App.common.ConstantMessage.*;
 import static App.common.ExceptionMessages.INVALID_TYPE;
 import static App.common.ExceptionMessages.SCANNER_NULL_OR_EMPTY;
 
@@ -95,7 +96,7 @@ public class EngineImpl implements Engine{
             String hasSidecar = scanner.nextLine();
             controller.addMotorcycle(regNumber,brand, model,mileage,hasSidecar);
         } else {
-            System.out.println("Invalid vehicle type!");
+           throw new IllegalArgumentException(INVALID_TYPE);
         }
     }
 
@@ -112,17 +113,16 @@ public class EngineImpl implements Engine{
     }
 
     private void handleView(Scanner scanner) {
-        System.out.println("Enter registration number to view details:");
+        System.out.println(VIEW_DETAILS);
         String regNumber = scanner.nextLine().trim();
-       // checkScanner(regNumber);
         System.out.println(controller.getVehicleDetails(regNumber));
     }
 
     private void handleRemove(Scanner scanner) {
-        System.out.println("Enter registration number to remove:");
+        System.out.println(TAKE_REGISTRATION_NUMBER_TO_REMOVE);
         String regNumber = scanner.nextLine().trim();
         controller.removeVehicle(regNumber);
-        System.out.println("Vehicle removed.");
+        System.out.println(REMOVE_VEHICLE);
     }
 
     private void handleStats() {

@@ -22,5 +22,5 @@ public class ExceptionMessages {
 
     public static final String SCANNER_NULL_OR_EMPTY = "Scanner cannot be null or empty.";
 
-    public static final String INVALID_TYPE = "Invalid type.";
+    public static final String INVALID_TYPE = "Invalid vehicle type.";
 }
